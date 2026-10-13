@@ -128,7 +128,7 @@ async function scrapeUber() {
 }
 
 async function scrapeSalesforce() {
-  return scrapeWorkdaySite('https://careers.salesforce.com/jobs?location=India&country=India', 'Salesforce');
+  return scrapeWorkdaySite('https://www.salesforce.com/company/careers/jobs/', 'Salesforce');
 }
 
 async function scrapeAdobe() {
