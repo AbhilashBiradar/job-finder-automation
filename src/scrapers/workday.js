@@ -26,12 +26,12 @@ async function scrapeWorkdaySite(url, companyName) {
 
     console.log(`   Navigating to: ${url}`);
     try {
-      await page.goto(url, { waitUntil: 'networkidle2', timeout: 90000 });
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
     } catch (err) {
       console.log(`   Navigation issue: ${err.message}, continuing anyway...`);
     }
 
-    await new Promise(r => setTimeout(r, 3000));
+    await new Promise(r => setTimeout(r, 6000)); // wait for React/JS to render
     await page.evaluate(() => { window.scrollBy(0, window.innerHeight); });
     await new Promise(r => setTimeout(r, 2000));
 
