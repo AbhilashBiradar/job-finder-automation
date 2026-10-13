@@ -40,6 +40,7 @@ async function scrapeAllJobs() {
   ];
 
   let allJobs = [];
+  const errors = [];
 
   for (const scraper of scrapers) {
     try {
@@ -48,11 +49,17 @@ async function scrapeAllJobs() {
       console.log(`   ✅ Found ${jobs.length} jobs`);
       allJobs = allJobs.concat(jobs);
     } catch (error) {
-      console.error(`   ❌ Error scraping ${scraper.name}:`, error.message);
+      const errorMsg = error.message || error.toString();
+      console.error(`   ❌ Error scraping ${scraper.name}:`, errorMsg);
+      errors.push({ company: scraper.name, error: errorMsg });
     }
   }
 
   console.log(`\n📦 Total jobs scraped: ${allJobs.length}`);
+  if (errors.length > 0) {
+    console.log(`⚠️  Errors during scraping: ${errors.length}`);
+    errors.forEach(e => console.log(`   - ${e.company}: ${e.error}`));
+  }
 
   // Load previous jobs for deduplication
   let previousJobs = [];
@@ -85,6 +92,7 @@ async function scrapeAllJobs() {
     totalJobs: allJobs.length,
     filteredJobs: filtered.jobs.length,
     newJobs: filtered.newJobs.length,
+    scrapeErrors: errors.length,
     jobs: filtered.jobs,
   };
 
@@ -94,6 +102,9 @@ async function scrapeAllJobs() {
   console.log(`   Total jobs: ${output.totalJobs}`);
   console.log(`   After filtering: ${output.filteredJobs}`);
   console.log(`   New jobs: ${output.newJobs}`);
+  if (errors.length > 0) {
+    console.log(`   Scrape errors: ${errors.length}`);
+  }
   console.log(`\n✅ Results saved to: ${JOBS_FILE}`);
 
   if (filtered.newJobs.length > 0) {
