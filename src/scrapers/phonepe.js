@@ -1,59 +1,31 @@
-const puppeteer = require('puppeteer');
+const axios = require('axios');
 
 async function scrapePhonePe() {
-  let browser;
   try {
-    console.log('   Using Puppeteer for PhonePe...');
-    browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--disable-dev-shm-usage'],
-    });
-    const page = await browser.newPage();
-    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
-    await page.setViewport({ width: 1280, height: 900 });
-
-    await page.goto('https://www.phonepe.com/en-in/careers/', { waitUntil: 'networkidle2', timeout: 60000 });
-    await new Promise(r => setTimeout(r, 4000));
-
-    const jobs = await page.evaluate(() => {
-      const results = [];
-      const seen = new Set();
-      document.querySelectorAll('a').forEach(el => {
-        const text = el.textContent?.trim() || '';
-        const href = el.href;
-        const isJob =
-          text.length > 5 && text.length < 200 &&
-          href && !href.endsWith('#') &&
-          (href.includes('phonepe') || href.includes('lever.co') || href.includes('greenhouse')) &&
-          href !== 'https://www.phonepe.com/en-in/careers/' &&
-          (
-            text.toLowerCase().includes('engineer') ||
-            text.toLowerCase().includes('developer') ||
-            text.toLowerCase().includes('senior') ||
-            text.toLowerCase().includes('lead') ||
-            text.toLowerCase().includes('architect') ||
-            text.toLowerCase().includes('analyst') ||
-            text.toLowerCase().includes('manager') ||
-            text.toLowerCase().includes('specialist') ||
-            text.toLowerCase().includes('backend') ||
-            text.toLowerCase().includes('frontend') ||
-            text.toLowerCase().includes('full stack')
-          );
-        if (isJob && !seen.has(href)) {
-          seen.add(href);
-          results.push({ title: text, link: href, location: 'Not specified', description: text });
-        }
-      });
-      return results.slice(0, 50);
+    console.log('   Using SmartRecruiters API for PhonePe...');
+    const url = 'https://api.smartrecruiters.com/v1/companies/PHONEPELIMITED/postings?limit=100&offset=0';
+    const res = await axios.get(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0', Accept: 'application/json' },
+      timeout: 20000,
     });
 
+    const jobs = res.data.content || [];
     console.log(`   Found ${jobs.length} jobs`);
-    return jobs.map(j => ({ ...j, company: 'PhonePe', scrapedAt: new Date().toISOString() }));
+
+    return jobs.map(j => {
+      const slug = j.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return {
+        title: j.name,
+        link: `https://jobs.smartrecruiters.com/PHONEPELIMITED/${j.id}-${slug}`,
+        location: j.location?.fullLocation || j.location?.city || 'Not specified',
+        description: `${j.function?.label || ''} - ${j.typeOfEmployment?.label || ''}`.trim(),
+        company: 'PhonePe',
+        scrapedAt: new Date().toISOString(),
+      };
+    });
   } catch (error) {
     console.error('   Error scraping PhonePe:', error.message);
     return [];
-  } finally {
-    if (browser) await browser.close().catch(() => {});
   }
 }
 

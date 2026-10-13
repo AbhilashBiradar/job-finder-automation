@@ -8,6 +8,7 @@ async function scrapeWorkdaySite(url, companyName) {
 
     browser = await puppeteer.launch({
       headless: true,
+      protocolTimeout: 180000,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -25,7 +26,7 @@ async function scrapeWorkdaySite(url, companyName) {
 
     console.log(`   Navigating to: ${url}`);
     try {
-      await page.goto(url, { waitUntil: 'networkidle0', timeout: 90000 });
+      await page.goto(url, { waitUntil: 'networkidle2', timeout: 90000 });
     } catch (err) {
       console.log(`   Navigation issue: ${err.message}, continuing anyway...`);
     }
