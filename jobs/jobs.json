@@ -1,41 +1,8 @@
 {
-  "scrapedAt": "2026-10-13T06:13:57.059Z",
-  "mode": "SAFE_TEST_MODE",
-  "totalJobs": 4,
-  "filteredJobs": 4,
-  "newJobs": 4,
-  "jobs": [
-    {
-      "title": "Senior Full Stack Engineer",
-      "company": "Amazon",
-      "link": "https://amazon.jobs/en/jobs/123456",
-      "location": "Bengaluru, India",
-      "description": "Build scalable services with Node.js and React",
-      "scrapedAt": "2026-10-13T06:13:57.059Z"
-    },
-    {
-      "title": "Senior Backend Engineer - TypeScript",
-      "company": "Salesforce",
-      "link": "https://salesforce.wd1.myworkdayjobs.com/789",
-      "location": "Bengaluru, India",
-      "description": "Node.js and cloud services",
-      "scrapedAt": "2026-10-13T06:13:57.059Z"
-    },
-    {
-      "title": "React Developer",
-      "company": "Adobe",
-      "link": "https://adobe.wd5.myworkdayjobs.com/999",
-      "location": "Hyderabad, India",
-      "description": "Frontend development with React",
-      "scrapedAt": "2026-10-13T06:13:57.059Z"
-    },
-    {
-      "title": "Senior Full Stack Engineer - JavaScript",
-      "company": "Flipkart",
-      "link": "https://flipkartcareers.com/jobs/111",
-      "location": "Bengaluru, India",
-      "description": "JavaScript and Node.js roles",
-      "scrapedAt": "2026-10-13T06:13:57.059Z"
-    }
-  ]
+  "scrapedAt": "2026-10-13T07:06:43.267Z",
+  "totalJobs": 0,
+  "filteredJobs": 0,
+  "newJobs": 0,
+  "scrapeErrors": 0,
+  "jobs": []
 }
