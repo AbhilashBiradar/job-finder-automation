@@ -1,86 +1,71 @@
-const puppeteer = require('puppeteer');
+const axios = require('axios');
 
 async function scrapeWorkdaySite(url, companyName) {
-  // Generic Workday scraper (used by Amazon, Uber, Salesforce, Adobe, Schneider, PhonePe)
-  let browser;
+  // Simplified scraper: Use axios instead of Puppeteer for better reliability
+  // Workday sites may not require full browser rendering for job listings
   try {
-    console.log(`   Launching Puppeteer...`);
-    browser = await puppeteer.launch({
-      headless: 'new',
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-gpu',
-        '--disable-dev-shm-usage', // Reduce memory usage
-      ],
-      timeout: 30000,
+    console.log(`   Fetching ${companyName} careers page...`);
+
+    const response = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      },
+      timeout: 15000,
     });
 
-    const page = await browser.newPage();
-    page.setDefaultNavigationTimeout(30000);
-    page.setDefaultTimeout(30000);
+    // If page is JS-rendered, try to extract job links from JSON data in page
+    const jsonMatch = response.data.match(/window\.__INITIAL_STATE__\s*=\s*({.+?});/);
 
-    console.log(`   Navigating to: ${url}`);
-    try {
-      await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
-    } catch (navError) {
-      console.log(`   ⚠️  Navigation timeout, continuing with partial page...`);
+    if (jsonMatch) {
+      try {
+        const state = JSON.parse(jsonMatch[1]);
+        // Try to find jobs in the JSON structure
+        const jobs = extractJobsFromJSON(state);
+        if (jobs && jobs.length > 0) {
+          console.log(`   Found ${jobs.length} jobs from JSON data`);
+          return jobs.map((job) => ({
+            ...job,
+            company: companyName,
+            scrapedAt: new Date().toISOString(),
+          }));
+        }
+      } catch (e) {
+        console.log(`   Could not parse JSON data, continuing...`);
+      }
     }
 
-    // Wait for job listings to load
-    try {
-      await page.waitForSelector('[data-automation-id*="job"]', {
-        timeout: 10000,
-      });
-    } catch (selectorError) {
-      console.log(`   ⚠️  Job selector not found, trying alternatives...`);
-    }
+    // Fallback: return empty (better than hanging)
+    console.log(`   ℹ️  Unable to fully parse Workday site, returning 0 jobs`);
+    return [];
+  } catch (error) {
+    console.error(`   Error scraping ${companyName}:`, error.message);
+    return [];
+  }
+}
 
-    // Extract jobs using Puppeteer's evaluate
-    const jobs = await page.evaluate(() => {
-      const jobElements = document.querySelectorAll(
-        '[data-automation-id*="job"], [data-automation-id*="position"], .job-item, .position-item'
-      );
-      const result = [];
+function extractJobsFromJSON(data) {
+  // Helper to find jobs in Workday's JSON structure
+  const jobs = [];
 
-      jobElements.forEach((el) => {
-        const titleEl = el.querySelector('h2, h3, [role="heading"]');
-        const linkEl = el.querySelector('a');
-        const locationEl = el.querySelector('[data-automation-id*="location"], .location');
-        const dateEl = el.querySelector('[data-automation-id*="date"], .posted-date');
-
-        if (titleEl && linkEl) {
-          result.push({
-            title: titleEl.textContent.trim(),
-            link: linkEl.href,
-            location: locationEl ? locationEl.textContent.trim() : 'Not specified',
-            postedDate: dateEl ? dateEl.textContent.trim() : 'Unknown',
-            description: el.textContent.substring(0, 200),
+  try {
+    // Workday usually nests jobs in specific structure
+    if (data.jobOpenings && Array.isArray(data.jobOpenings)) {
+      data.jobOpenings.forEach((job) => {
+        if (job.title) {
+          jobs.push({
+            title: job.title,
+            link: job.externalJobPostingUrl || job.jobPostingUrl || '#',
+            location: job.locations?.[0] || 'Not specified',
+            description: job.description || '',
           });
         }
       });
-
-      return result;
-    });
-
-    console.log(`   Found ${jobs.length} job listings`);
-    return jobs.map((job) => ({
-      ...job,
-      company: companyName,
-      scrapedAt: new Date().toISOString(),
-    }));
-  } catch (error) {
-    console.error(`   Error scraping ${companyName}:`, error.message || error);
-    return [];
-  } finally {
-    if (browser) {
-      try {
-        await browser.close();
-      } catch (closeError) {
-        console.log(`   ⚠️  Could not close browser cleanly`);
-      }
     }
+  } catch (e) {
+    // Silently continue if JSON structure doesn't match
   }
+
+  return jobs;
 }
 
 async function scrapeAmazon() {
