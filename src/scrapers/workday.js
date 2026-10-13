@@ -4,9 +4,16 @@ async function scrapeWorkdaySite(url, companyName) {
   // Generic Workday scraper (used by Amazon, Uber, Salesforce, Adobe, Schneider, PhonePe)
   let browser;
   try {
+    console.log(`   Launching Puppeteer...`);
     browser = await puppeteer.launch({
       headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox'], // Required for GitHub Actions
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-gpu',
+        '--disable-dev-shm-usage', // Reduce memory usage
+      ],
+      timeout: 30000,
     });
 
     const page = await browser.newPage();
@@ -14,14 +21,20 @@ async function scrapeWorkdaySite(url, companyName) {
     page.setDefaultTimeout(30000);
 
     console.log(`   Navigating to: ${url}`);
-    await page.goto(url, { waitUntil: 'networkidle2' });
+    try {
+      await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+    } catch (navError) {
+      console.log(`   ⚠️  Navigation timeout, continuing with partial page...`);
+    }
 
     // Wait for job listings to load
-    await page.waitForSelector('[data-automation-id*="job"]', {
-      timeout: 10000,
-    }).catch(() => {
-      console.log(`   ⚠️  Standard selector not found, trying alternatives...`);
-    });
+    try {
+      await page.waitForSelector('[data-automation-id*="job"]', {
+        timeout: 10000,
+      });
+    } catch (selectorError) {
+      console.log(`   ⚠️  Job selector not found, trying alternatives...`);
+    }
 
     // Extract jobs using Puppeteer's evaluate
     const jobs = await page.evaluate(() => {
@@ -57,11 +70,15 @@ async function scrapeWorkdaySite(url, companyName) {
       scrapedAt: new Date().toISOString(),
     }));
   } catch (error) {
-    console.error(`   Error scraping ${companyName}:`, error.message);
+    console.error(`   Error scraping ${companyName}:`, error.message || error);
     return [];
   } finally {
     if (browser) {
-      await browser.close();
+      try {
+        await browser.close();
+      } catch (closeError) {
+        console.log(`   ⚠️  Could not close browser cleanly`);
+      }
     }
   }
 }
