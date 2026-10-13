@@ -1,0 +1,24 @@
+{
+  "name": "job-finder-automation",
+  "version": "1.0.0",
+  "description": "Automated job scraper for tech companies: Amazon, Schneider, Flipkart, Uber, PhonePe, Salesforce, Adobe, SAP Fioneer",
+  "main": "src/index.js",
+  "scripts": {
+    "scrape": "node src/index.js",
+    "scrape:debug": "DEBUG=* node src/index.js"
+  },
+  "keywords": ["job-scraper", "automation", "tech-jobs"],
+  "author": "Abhilash Biradar",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "puppeteer": "^21.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,51 @@
+name: Daily Job Scraper
+
+on:
+  schedule:
+    # Run daily at 9 AM UTC (2:30 PM IST)
+    - cron: '0 9 * * *'
+  # Also allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run scraper
+        run: npm run scrape
+
+      - name: Commit and push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add jobs/jobs.json
+
+          # Only commit if there are changes
+          if git diff --quiet --cached; then
+            echo "No changes to commit"
+          else
+            git commit -m "🤖 Daily job update: $(date +'%Y-%m-%d %H:%M:%S UTC')"
+            git push
+          fi
+
+      - name: Upload results artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: job-results
+          path: jobs/jobs.json
+          retention-days: 30
