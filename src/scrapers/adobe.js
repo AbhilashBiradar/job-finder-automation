@@ -1,7 +1,7 @@
-const { scrapeAdobe: scrapeAdobeWD } = require('./workday');
+const { scrapeAdobe: scrapeAdobePuppeteer } = require('./workday');
 
 async function scrapeAdobe() {
-  return scrapeAdobeWD();
+  return scrapeAdobePuppeteer();
 }
 
 module.exports = { scrapeAdobe };

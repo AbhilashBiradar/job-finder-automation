@@ -16,7 +16,9 @@ function filterAndDeduplicate(jobs, previousJobs, keywords, locations) {
         (job.description || '').toLowerCase().includes(keyword.toLowerCase())
     );
 
-    return locationMatch && keywordMatch;
+    // Location is often 'Not specified' on listing pages; treat unknown as pass
+    const locationUnknown = !job.location || job.location === 'Not specified';
+    return keywordMatch && (locationUnknown || locationMatch);
   });
 
   // Identify new jobs

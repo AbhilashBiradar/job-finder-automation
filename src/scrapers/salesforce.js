@@ -1,7 +1,7 @@
-const { scrapeSalesforce: scrapeSalesforceWD } = require('./workday');
+const { scrapeSalesforce: scrapeSalesforcePuppeteer } = require('./workday');
 
 async function scrapeSalesforce() {
-  return scrapeSalesforceWD();
+  return scrapeSalesforcePuppeteer();
 }
 
 module.exports = { scrapeSalesforce };

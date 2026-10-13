@@ -13,79 +13,109 @@ async function scrapeWorkdaySite(url, companyName) {
         '--disable-setuid-sandbox',
         '--disable-gpu',
         '--disable-dev-shm-usage',
+        '--disable-blink-features=AutomationControlled',
       ],
     });
 
     page = await browser.newPage();
-    page.setDefaultNavigationTimeout(60000);
-    page.setDefaultTimeout(60000);
-    await page.setViewport({ width: 1280, height: 720 });
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+    page.setDefaultNavigationTimeout(90000);
+    page.setDefaultTimeout(90000);
+    await page.setViewport({ width: 1920, height: 1080 });
 
     console.log(`   Navigating to: ${url}`);
-    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 }).catch(
-      () => console.log('   Navigation warning, continuing...')
-    );
-
-    // Wait for jobs
     try {
-      await page.waitForSelector('[data-automation-id*="job"]', { timeout: 15000 }).catch(
-        () => console.log('   Job selector not found')
-      );
-    } catch (e) {
-      // Continue anyway
+      await page.goto(url, { waitUntil: 'networkidle0', timeout: 90000 });
+    } catch (err) {
+      console.log(`   Navigation issue: ${err.message}, continuing anyway...`);
     }
 
-    // Extract jobs
+    await new Promise(r => setTimeout(r, 3000));
+    await page.evaluate(() => { window.scrollBy(0, window.innerHeight); });
+    await new Promise(r => setTimeout(r, 2000));
+
     const jobs = await page.evaluate(() => {
       const results = [];
-      const jobElements = document.querySelectorAll(
-        '[data-automation-id*="job"], [role="listitem"], .job-item, a[href*="jobs"]'
-      );
+      const seen = new Set();
 
-      jobElements.forEach((el) => {
+      // Scan all links and filter by job-like text
+      const allElements = document.querySelectorAll('a');
+      allElements.forEach(el => {
         try {
-          const titleEl = el.querySelector('h2, h3, span[role="heading"]') || el;
-          const linkEl = el.querySelector('a[href]') || el.closest('a');
-          const locationEl = el.querySelector('[data-automation-id*="location"]');
+          const text = el.textContent?.trim() || '';
+          const href = el.href;
 
-          const title = titleEl?.textContent?.trim?.();
-          const link = linkEl?.href;
-          const location = locationEl?.textContent?.trim?.() || 'Not specified';
+          const isJobLike =
+            text.length > 5 && text.length < 200 &&
+            !text.includes('Home') && !text.includes('About') &&
+            !text.includes('Contact') && !text.includes('Privacy') &&
+            (
+              text.toLowerCase().includes('engineer') ||
+              text.toLowerCase().includes('developer') ||
+              text.toLowerCase().includes('senior') ||
+              text.toLowerCase().includes('manager') ||
+              text.toLowerCase().includes('analyst') ||
+              text.toLowerCase().includes('architect') ||
+              text.toLowerCase().includes('lead') ||
+              text.toLowerCase().includes('specialist') ||
+              text.toLowerCase().includes('scientist') ||
+              text.toLowerCase().includes('designer') ||
+              text.toLowerCase().includes('backend') ||
+              text.toLowerCase().includes('frontend')
+            );
 
-          if (title && title.length > 5 && link && link.startsWith('http')) {
-            results.push({ title, link, location, description: el.textContent.substring(0, 200) });
+          if (isJobLike && href && !href.endsWith('#') && !seen.has(href)) {
+            seen.add(href);
+            results.push({
+              title: text.substring(0, 200),
+              link: href,
+              location: 'Not specified',
+              description: text.substring(0, 200),
+            });
           }
-        } catch (e) {
-          // Skip
-        }
+        } catch (e) {}
       });
 
-      return results;
+      // Fallback: Workday-specific selectors
+      if (results.length === 0) {
+        const containers = document.querySelectorAll('[data-automation-id], [role="listitem"], .job, .position');
+        containers.forEach(container => {
+          try {
+            const link = container.querySelector('a');
+            const title = container.textContent?.trim()?.substring(0, 200);
+            if (link?.href && title && title.length > 5 && !seen.has(link.href)) {
+              seen.add(link.href);
+              results.push({ title, link: link.href, location: 'Not specified', description: title });
+            }
+          } catch (e) {}
+        });
+      }
+
+      return results.slice(0, 100);
     });
 
     console.log(`   Found ${jobs.length} job listings`);
 
-    return jobs.map((job) => ({
+    return jobs.map(job => ({
       ...job,
       company: companyName,
       scrapedAt: new Date().toISOString(),
     }));
 
   } catch (error) {
-    console.error(`   Error scraping ${companyName}:`, error.message);
+    console.error(`   Error scraping ${companyName}: ${error.message}`);
     return [];
   } finally {
-    try {
-      if (page) await page.close();
-      if (browser) await browser.close();
-    } catch (e) {
-      // Ignore close errors
-    }
+    try { if (page) await page.close(); } catch (e) {}
+    try { if (browser) await browser.close(); } catch (e) {}
   }
 }
 
 async function scrapeAmazon() {
-  return scrapeWorkdaySite('https://amazon.jobs/en/search', 'Amazon');
+  return scrapeWorkdaySite(
+    'https://www.amazon.jobs/en/search?base_query=software+engineer&city%5B%5D=Bengaluru&country_code%5B%5D=IN',
+    'Amazon'
+  );
 }
 
 async function scrapeSchneider() {
@@ -97,15 +127,11 @@ async function scrapeUber() {
 }
 
 async function scrapeSalesforce() {
-  return scrapeWorkdaySite('https://salesforce.wd1.myworkdayjobs.com/en-US/SalesforceExternalCareers/jobs', 'Salesforce');
+  return scrapeWorkdaySite('https://careers.salesforce.com/jobs?location=India&country=India', 'Salesforce');
 }
 
 async function scrapeAdobe() {
-  return scrapeWorkdaySite('https://adobe.wd5.myworkdayjobs.com/en-US/careers', 'Adobe');
+  return scrapeWorkdaySite('https://careers.adobe.com/us/en/search-results?keywords=engineer&location=India', 'Adobe');
 }
 
-async function scrapePhonePe() {
-  return scrapeWorkdaySite('https://careers.phonepe.com/jobs', 'PhonePe');
-}
-
-module.exports = { scrapeAmazon, scrapeSchneider, scrapeUber, scrapeSalesforce, scrapeAdobe, scrapePhonePe };
+module.exports = { scrapeAmazon, scrapeSchneider, scrapeUber, scrapeSalesforce, scrapeAdobe };
