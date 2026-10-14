@@ -1,49 +1,89 @@
 {
-  "scrapedAt": "2026-10-14T05:14:35.167Z",
-  "totalJobs": 141,
-  "filteredJobs": 58,
-  "newJobs": 4,
+  "scrapedAt": "2026-10-14T15:23:37.295Z",
+  "totalJobs": 138,
+  "filteredJobs": 57,
+  "newJobs": 10,
   "scrapeErrors": 0,
   "jobs": [
     {
-      "title": "Senior Engineer I, Embedded Software Design",
-      "link": "https://careers.se.com/jobs/135347?lang=zh-cn&previousLocale=en-US",
+      "title": "Principal Software Engineer, Fulfillment by Amazon - IOS",
+      "link": "https://www.amazon.jobs/en/jobs/10530757/principal-software-engineer-fulfillment-by-amazon-ios",
       "location": "Not specified",
-      "description": "Senior Engineer I, Embedded Software Design",
-      "company": "Schneider Electric",
-      "scrapedAt": "2026-10-14T05:13:57.181Z"
-    },
-    {
-      "title": "Machine Learning Engineer II, Pricing",
-      "link": "https://jobs.uber.com/en/jobs/303474/",
-      "location": "Not specified",
-      "description": "Machine Learning Engineer II, Pricing",
-      "company": "Uber",
-      "scrapedAt": "2026-10-14T05:14:13.052Z"
-    },
-    {
-      "title": "Sr Staff Engineer - U4B",
-      "link": "https://jobs.uber.com/en/jobs/303355/",
-      "location": "Not specified",
-      "description": "Sr Staff Engineer - U4B",
-      "company": "Uber",
-      "scrapedAt": "2026-10-14T05:14:13.052Z"
-    },
-    {
-      "title": "Lead Forward Deployed Engineer",
-      "link": "https://www.salesforce.com/company/careers/jobs/JR348990/lead-forward-deployed-engineer/",
-      "location": "Not specified",
-      "description": "Lead Forward Deployed Engineer",
-      "company": "Salesforce",
-      "scrapedAt": "2026-10-14T05:14:24.195Z"
-    },
-    {
-      "title": "Software Engineer , Selection Monitoring",
-      "link": "https://www.amazon.jobs/en/jobs/10544124/software-engineer-selection-monitoring",
-      "location": "Not specified",
-      "description": "Software Engineer , Selection Monitoring",
+      "description": "Principal Software Engineer, Fulfillment by Amazon - IOS",
       "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
+    },
+    {
+      "title": "Senior Account Manager, Enterprise - Uber Retail",
+      "link": "https://jobs.uber.com/en/jobs/302198/",
+      "location": "Not specified",
+      "description": "Senior Account Manager, Enterprise - Uber Retail",
+      "company": "Uber",
+      "scrapedAt": "2026-10-14T15:23:16.318Z"
+    },
+    {
+      "title": "Software Engineer, Backend",
+      "link": "https://jobs.smartrecruiters.com/PHONEPELIMITED/1000000000004097-software-engineer-backend",
+      "location": "Pune, Maharashtra, India",
+      "description": "Engineering - Full-time",
+      "company": "PhonePe",
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
+    },
+    {
+      "title": "Migration Delivery Senior Lead - Revenue Cloud",
+      "link": "https://www.salesforce.com/company/careers/jobs/JR351863/migration-delivery-senior-lead-revenue-cloud/",
+      "location": "Not specified",
+      "description": "Migration Delivery Senior Lead - Revenue Cloud",
+      "company": "Salesforce",
+      "scrapedAt": "2026-10-14T15:23:26.720Z"
+    },
+    {
+      "title": "Lead / Senior Offensive Security Engineer (Offsec AI Team)",
+      "link": "https://www.salesforce.com/company/careers/jobs/JR353563/lead-senior-offensive-security-engineer-offsec-ai-team/",
+      "location": "Not specified",
+      "description": "Lead / Senior Offensive Security Engineer (Offsec AI Team)",
+      "company": "Salesforce",
+      "scrapedAt": "2026-10-14T15:23:26.720Z"
+    },
+    {
+      "title": "Customer Success Senior Manager",
+      "link": "https://www.salesforce.com/company/careers/jobs/JR355033/customer-success-senior-manager/",
+      "location": "Not specified",
+      "description": "Customer Success Senior Manager",
+      "company": "Salesforce",
+      "scrapedAt": "2026-10-14T15:23:26.720Z"
+    },
+    {
+      "title": "Software Engineering PMTS - Backend Distributed Systems - Cloud Infrastructure",
+      "link": "https://www.salesforce.com/company/careers/jobs/JR357893/software-engineering-pmts-backend-distributed-systems-cloud-infrastructure/",
+      "location": "Not specified",
+      "description": "Software Engineering PMTS - Backend Distributed Systems - Cloud Infrastructure",
+      "company": "Salesforce",
+      "scrapedAt": "2026-10-14T15:23:26.720Z"
+    },
+    {
+      "title": "Senior Technical Architect (Partner Success)",
+      "link": "https://www.salesforce.com/company/careers/jobs/JR358030/senior-technical-architect-partner-success/",
+      "location": "Not specified",
+      "description": "Senior Technical Architect (Partner Success)",
+      "company": "Salesforce",
+      "scrapedAt": "2026-10-14T15:23:26.720Z"
+    },
+    {
+      "title": "Data Engineering Senior Associate- Finance",
+      "link": "https://www.salesforce.com/company/careers/jobs/JR359930/data-engineering-senior-associate-finance/",
+      "location": "Not specified",
+      "description": "Data Engineering Senior Associate- Finance",
+      "company": "Salesforce",
+      "scrapedAt": "2026-10-14T15:23:26.720Z"
+    },
+    {
+      "title": "Senior Technical Architect - German-Speaking",
+      "link": "https://www.salesforce.com/company/careers/jobs/JR361403/senior-technical-architect-german-speaking/",
+      "location": "Not specified",
+      "description": "Senior Technical Architect - German-Speaking",
+      "company": "Salesforce",
+      "scrapedAt": "2026-10-14T15:23:26.720Z"
     },
     {
       "title": "Principal Software Engineer, RBS - Tech",
@@ -51,7 +91,7 @@
       "location": "Not specified",
       "description": "Principal Software Engineer, RBS - Tech",
       "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
     },
     {
       "title": "Software Engineer, Flex Offer Journey",
@@ -59,7 +99,7 @@
       "location": "Not specified",
       "description": "Software Engineer, Flex Offer Journey",
       "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
     },
     {
       "title": "Software Engineer, Flex Offer Journey",
@@ -67,7 +107,7 @@
       "location": "Not specified",
       "description": "Software Engineer, Flex Offer Journey",
       "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
     },
     {
       "title": "Software Engineer, Selection Monitoring, Selection Monitoring",
@@ -75,7 +115,7 @@
       "location": "Not specified",
       "description": "Software Engineer, Selection Monitoring, Selection Monitoring",
       "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
     },
     {
       "title": "Principal Software Engineer, Alexa AI (AURORA)",
@@ -83,23 +123,7 @@
       "location": "Not specified",
       "description": "Principal Software Engineer, Alexa AI (AURORA)",
       "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
-    },
-    {
-      "title": "Principal Software Engineer, Prime Video Commerce Tech",
-      "link": "https://www.amazon.jobs/en/jobs/10463881/principal-software-engineer-prime-video-commerce-tech",
-      "location": "Not specified",
-      "description": "Principal Software Engineer, Prime Video Commerce Tech",
-      "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
-    },
-    {
-      "title": "Principal Software Engineer, Prime Video & Studios CoreTech",
-      "link": "https://www.amazon.jobs/en/jobs/3146219/principal-software-engineer-prime-video-studios-coretech",
-      "location": "Not specified",
-      "description": "Principal Software Engineer, Prime Video & Studios CoreTech",
-      "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
     },
     {
       "title": "Software Engineer, Cross Border Science and Analytics",
@@ -107,7 +131,23 @@
       "location": "Not specified",
       "description": "Software Engineer, Cross Border Science and Analytics",
       "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
+    },
+    {
+      "title": "Principal Software Engineer, Prime Video Commerce Tech",
+      "link": "https://www.amazon.jobs/en/jobs/10463881/principal-software-engineer-prime-video-commerce-tech",
+      "location": "Not specified",
+      "description": "Principal Software Engineer, Prime Video Commerce Tech",
+      "company": "Amazon",
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
+    },
+    {
+      "title": "Principal Software Engineer, Prime Video & Studios CoreTech",
+      "link": "https://www.amazon.jobs/en/jobs/3146219/principal-software-engineer-prime-video-studios-coretech",
+      "location": "Not specified",
+      "description": "Principal Software Engineer, Prime Video & Studios CoreTech",
+      "company": "Amazon",
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
     },
     {
       "title": "Principal Software Engineer, Device Cloud Core Services",
@@ -115,7 +155,7 @@
       "location": "Not specified",
       "description": "Principal Software Engineer, Device Cloud Core Services",
       "company": "Amazon",
-      "scrapedAt": "2026-10-14T05:13:46.314Z"
+      "scrapedAt": "2026-10-14T15:22:50.116Z"
     },
     {
       "title": "Specialist Senior Service Representative I",
@@ -123,7 +163,7 @@
       "location": "Not specified",
       "description": "Specialist Senior Service Representative I",
       "company": "Schneider Electric",
-      "scrapedAt": "2026-10-14T05:13:57.181Z"
+      "scrapedAt": "2026-10-14T15:23:00.102Z"
     },
     {
       "title": "Senior Engineer I, Embedded Software Test",
@@ -131,15 +171,7 @@
       "location": "Not specified",
       "description": "Senior Engineer I, Embedded Software Test",
       "company": "Schneider Electric",
-      "scrapedAt": "2026-10-14T05:13:57.181Z"
-    },
-    {
-      "title": "Senior Principal, Storage & EMS Senior Offer Manager",
-      "link": "https://careers.se.com/jobs/137812?lang=zh-cn&previousLocale=en-US",
-      "location": "Not specified",
-      "description": "Senior Principal, Storage & EMS Senior Offer Manager",
-      "company": "Schneider Electric",
-      "scrapedAt": "2026-10-14T05:13:57.181Z"
+      "scrapedAt": "2026-10-14T15:23:00.102Z"
     },
     {
       "title": "Data Engineer I",
@@ -147,7 +179,23 @@
       "location": "Not specified",
       "description": "Data Engineer I",
       "company": "Schneider Electric",
-      "scrapedAt": "2026-10-14T05:13:57.181Z"
+      "scrapedAt": "2026-10-14T15:23:00.102Z"
+    },
+    {
+      "title": "Senior Engineer I, Embedded Software Design",
+      "link": "https://careers.se.com/jobs/135347?lang=zh-cn&previousLocale=en-US",
+      "location": "Not specified",
+      "description": "Senior Engineer I, Embedded Software Design",
+      "company": "Schneider Electric",
+      "scrapedAt": "2026-10-14T15:23:00.102Z"
+    },
+    {
+      "title": "Senior Principal, Storage & EMS Senior Offer Manager",
+      "link": "https://careers.se.com/jobs/137812?lang=zh-cn&previousLocale=en-US",
+      "location": "Not specified",
+      "description": "Senior Principal, Storage & EMS Senior Offer Manager",
+      "company": "Schneider Electric",
+      "scrapedAt": "2026-10-14T15:23:00.102Z"
     },
     {
       "title": "Manager/Senior Manager, Anti Corruption Compliance",
@@ -155,7 +203,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Other - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
     },
     {
       "title": "Software Engineer - React Native",
@@ -163,7 +211,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Engineering - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
     },
     {
       "title": "Network Delivery Engineer 1",
@@ -171,7 +219,7 @@
       "location": "Pune, Maharashtra, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
     },
     {
       "title": "Software Engineer - Backend (5-7) YOE, Core",
@@ -179,7 +227,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
     },
     {
       "title": "Android Developer",
@@ -187,15 +235,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Engineering - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
-    },
-    {
-      "title": "Software Engineer (5-7) Lending ",
-      "link": "https://jobs.smartrecruiters.com/PHONEPELIMITED/1000000000003901-software-engineer-5-7-lending",
-      "location": "Bengaluru, Karnataka, India",
-      "description": "Information Technology - Full-time",
-      "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
     },
     {
       "title": "Software Engineer (3-5)",
@@ -203,7 +243,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
     },
     {
       "title": "Site Operations Engineer",
@@ -211,7 +251,7 @@
       "location": "Mumbai, Maharashtra, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
     },
     {
       "title": "Software Engineer (5-7 years,Firmware)",
@@ -219,7 +259,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
     },
     {
       "title": "Product Solution Engineer (3-5 years)",
@@ -227,15 +267,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
-    },
-    {
-      "title": "Senior Manager, Category Operations",
-      "link": "https://jobs.smartrecruiters.com/PHONEPELIMITED/1000000000003331-senior-manager-category-operations",
-      "location": "Bengaluru, Karnataka, India",
-      "description": "Other - Full-time",
-      "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.456Z"
     },
     {
       "title": "Engineering Manager, Backend - Payments",
@@ -243,7 +275,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Engineering - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Site Reliability Engineer - On-Prem (1 to 4 Years)",
@@ -251,7 +283,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Engineering Manager, Backend - Lending",
@@ -259,7 +291,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Senior Product Manager, Insurance",
@@ -267,7 +299,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Product Management - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Engineering Manager, Backend - Central Platforms",
@@ -275,7 +307,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "System Integrator",
@@ -283,7 +315,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Engineering - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Senior Executive - Lending Operations",
@@ -291,7 +323,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Other - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Software Engineer - React Native",
@@ -299,7 +331,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Engineering - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Senior Product Manager",
@@ -307,7 +339,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Engineering - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Site Reliability Engineer - AWS (4 to 8 Years)",
@@ -315,7 +347,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Site Reliability Engineer - AWS (7 to 12 Years)",
@@ -323,7 +355,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Site Reliability Engineer - On-Prem (4 to 8 Years)",
@@ -331,7 +363,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Site Reliability Engineer - On-Prem (4 to 8 Years)",
@@ -339,7 +371,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Software Engineer - SRE (Rust)",
@@ -347,7 +379,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Site Reliability Engineer - On-Prem (4 to 8 Years)",
@@ -355,7 +387,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Site Reliability Engineer - On-Prem (4 to 12 Years)",
@@ -363,7 +395,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Senior Executive, Financial Services Compliance",
@@ -371,7 +403,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Finance - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Senior Executive, Technology Risk & Compliance",
@@ -379,7 +411,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Other - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "ServiceNow Senior Analyst",
@@ -387,7 +419,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Other - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Site Reliability Engineer - Big Data (4 to 12 Years)",
@@ -395,7 +427,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Engineering Manager, Backend - Pune",
@@ -403,7 +435,7 @@
       "location": "Pune, Maharashtra, India",
       "description": "Engineering - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Engineering Manager - Platforms",
@@ -411,15 +443,7 @@
       "location": "Bengaluru, Karnataka, India",
       "description": "Information Technology - Full-time",
       "company": "PhonePe",
-      "scrapedAt": "2026-10-14T05:14:14.291Z"
-    },
-    {
-      "title": "Customer Success Strategy Senior Manager/Manager",
-      "link": "https://www.salesforce.com/company/careers/jobs/JR345991/customer-success-strategy-senior-managermanager/",
-      "location": "Not specified",
-      "description": "Customer Success Strategy Senior Manager/Manager",
-      "company": "Salesforce",
-      "scrapedAt": "2026-10-14T05:14:24.195Z"
+      "scrapedAt": "2026-10-14T15:23:17.457Z"
     },
     {
       "title": "Senior Offensive AI Security Researcher",
@@ -427,39 +451,7 @@
       "location": "Not specified",
       "description": "Senior Offensive AI Security Researcher",
       "company": "Salesforce",
-      "scrapedAt": "2026-10-14T05:14:24.195Z"
-    },
-    {
-      "title": "Enterprise Security Senior Analyst, Security Partner",
-      "link": "https://www.salesforce.com/company/careers/jobs/JR357259/enterprise-security-senior-analyst-security-partner/",
-      "location": "Not specified",
-      "description": "Enterprise Security Senior Analyst, Security Partner",
-      "company": "Salesforce",
-      "scrapedAt": "2026-10-14T05:14:24.195Z"
-    },
-    {
-      "title": "Workday Systems Engineer - Absence & Time Tracking",
-      "link": "https://www.salesforce.com/company/careers/jobs/JR357823/workday-systems-engineer-absence-time-tracking/",
-      "location": "Not specified",
-      "description": "Workday Systems Engineer - Absence & Time Tracking",
-      "company": "Salesforce",
-      "scrapedAt": "2026-10-14T05:14:24.195Z"
-    },
-    {
-      "title": "Principal Technical Support Engineer(Signature)",
-      "link": "https://www.salesforce.com/company/careers/jobs/JR359373/principal-technical-support-engineersignature/",
-      "location": "Not specified",
-      "description": "Principal Technical Support Engineer(Signature)",
-      "company": "Salesforce",
-      "scrapedAt": "2026-10-14T05:14:24.195Z"
-    },
-    {
-      "title": "Data Engineering Senior Associate",
-      "link": "https://www.salesforce.com/company/careers/jobs/JR359930/data-engineering-senior-associate/",
-      "location": "Not specified",
-      "description": "Data Engineering Senior Associate",
-      "company": "Salesforce",
-      "scrapedAt": "2026-10-14T05:14:24.195Z"
+      "scrapedAt": "2026-10-14T15:23:26.720Z"
     },
     {
       "title": "Engineering and Product",
@@ -467,7 +459,7 @@
       "location": "Not specified",
       "description": "Engineering and Product",
       "company": "Adobe",
-      "scrapedAt": "2026-10-14T05:14:35.054Z"
+      "scrapedAt": "2026-10-14T15:23:37.168Z"
     }
   ]
 }
